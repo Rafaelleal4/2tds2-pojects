@@ -1,4 +1,5 @@
 const posts = [];
+let postIndex = -1;
 
 function savesPost() {
     const title = document.getElementById("title").value;
@@ -7,15 +8,29 @@ function savesPost() {
     const author = document.getElementById("author").value;
     const date = document.getElementById("date").value;
 
-    
-    if(title && category && resumo && author && date) {
-        storePosts(title, category, resumo, author, date)
+
+    if (title && category && resumo && author && date) {
+        if (postIndex == -1) {
+            storePosts(title, category, resumo, author, date)
+            cleanFields();
+            showPosts();
+        }
+        else {
+            posts[postIndex] = {
+                title,
+                category,
+                resumo,
+                author,
+                date
+            }
+        }
         cleanFields();
         showPosts();
-    } else{
+        postIndex = -1;
+    } else {
         alert("Preencha todos os campos!")
     }
-    
+
 }
 
 function cleanFields() {
@@ -28,18 +43,18 @@ function cleanFields() {
 
 function storePosts(title, category, resumo, author, date) {
     const post = {
-        title: title,
-        category: category,
-        resumo: resumo,
-        author: author,
-        date: date,
+        title,
+        category,
+        resumo,
+        author,
+        date
     };
-    posts.push(post)
+    posts.push(post);
 
-    console.log(posts)
 }
 
 function showPosts() {
+    document.getElementById("list").classList.remove("hidden");
     let showContent = "";
 
     posts.forEach((post, index) => {
@@ -52,10 +67,30 @@ function showPosts() {
         <p><strong>Data de publicação: </strong>${post.date}</p>
 
         <button onclick="editPost(${index})">Editar</button>
-        <button onclick="deletePost(${index})">Excluir</button>
+        <button onclick="removePost(${index})">Excluir</button>
         </div>
-        `;
-    });
-    document.getElementById("list").innerHTML = showContent
+        `
+    })
+    document.getElementById("list").innerHTML = showContent;
+}
+
+function editPost(index) {
+    const post = posts[index];
+
+    document.getElementById("title").value = post.title;
+    document.getElementById("category").value = post.category;
+    document.getElementById("resumo").value = post.resumo;
+    document.getElementById("author").value = post.author;
+    document.getElementById("date").value = post.date;
+
+    postIndex = index;
+}
+function removePost(index) {
+    posts.splice(index, 1);
+    showPosts();
+
+    if(posts.length == 0) {
+        document.getElementById("list").classList.add("hidden");
+    }
 }
 
