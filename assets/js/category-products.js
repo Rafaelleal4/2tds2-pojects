@@ -27,25 +27,36 @@ class CategoryService {
     }
 }
 
-class ProductsService {
+class ProductService {
     constructor() {
         this.products = [];
         this.nextProductId = 0;
     }
     addProduct(name, price, category){
         const id = this.nextProductId++;
-        const product = new Product(id, name, category);
+        const product = new Product(id, name,price, category);
         category.products.push(product)
         this.products.push(product)
     }
 }
 
 const categoryService = new CategoryService()
+const productService = new ProductService()
 
 function creatCategory() {
-    const categoryName = "Cenoura";
+    const categoryName = "Verduras";
     
     categoryService.addCategory(categoryName)
 
     console.log(categoryService.categories)
+}
+
+function creatProduct() {
+    const productName = "Cenouras";
+    const productPrice = 7;
+    const productCategory = categoryService.categories[0];
+
+    productService.addProduct(productName, productPrice, productCategory);
+
+    console.log(productService.products)
 }
