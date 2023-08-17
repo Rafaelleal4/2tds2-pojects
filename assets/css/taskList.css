@@ -24,27 +24,24 @@ main {
     margin: 0 auto;
     margin-top: 15vh;
 }
+#alerta {
+    display: none;
+}
 
-#form2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    height: 5rem;
-    width: 40rem;
-    border-radius: 8px;
-    margin: 0 auto;
+#publish {
+    margin-left: 20rem;
 }
 
 #backs2 {
-    background-color: #f5f5f5;
-    width: 30rem;
+    background-color: #fff;
+    width: 40rem;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
     border: none;
-    margin-right: 5rem;
+    margin-top: 1rem;
+
 }
 
 #taskInput {
@@ -62,21 +59,17 @@ main {
 input {
     outline: none;
     border: none;
-
 }
 
-#task {
+.card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #f5f5f5;
-    width: 37rem;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin: 0 auto;
-   
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.4rem;
+    background-color: #f0f0f0;
+    border-radius: 7px;
+    margin-top: 1rem;
 }
-
 
 #plus {
     background-color: #f5f5f5;
@@ -138,7 +131,6 @@ input {
     background-color: #ff0000;
 }
 
-#alerta {
-    color: red;
+.hidden {
     display: none;
 }

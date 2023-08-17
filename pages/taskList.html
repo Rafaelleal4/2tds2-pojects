@@ -8,28 +8,20 @@
     <link rel="stylesheet" href="../assets/css/taskList.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <title>Task List</title>
 </head>
 
 <body>
     <main>
+        <p class="alerta"></p>
         <div id="form">
             <section id="backs">
-                <p id="alerta">Favor adicionar uma tarefa</p>
-                <input id="taskInput" placeholder="Adicione uma nova tarefa" type="text">
-                <button onclick="" id="plus"><i id="plus" class="fa-solid fa-plus"></i></button>
+                <input id="taskInput" placeholder="Write a new task!" type="text">
+                <button onclick="createTask()" id="plus"><i id="plus" class="fa-solid fa-plus"></i></button>
             </section>
         </div>
-        <div id="form2">
-        <section id="task">
-            <p>Boomerangue</p>
-            <section id="backs2">
-                <button onclick="" id="check"><i class="fa-solid fa-check"></i></button>
-                <button onclick="" id="edit"><i class="fa-solid fa-pencil"></i></button>
-                <button onclick="" id="trash"><i class="fa-solid fa-trash"></i></button>
-            </section>
-        </section>
+        <div id="publish" class="hidden">
     </div>
     </main>
 
