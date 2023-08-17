@@ -44,11 +44,14 @@ const categoryService = new CategoryService()
 const productService = new ProductService()
 
 function creatCategory() {
-    const categoryName = "Verduras";
+    const categoryName = document.getElementById("categoryName").value;
+    console.log(categoryName);
     
     categoryService.addCategory(categoryName)
 
     console.log(categoryService.categories)
+
+    clearFormFields();
 }
 
 function creatProduct() {
@@ -59,4 +62,11 @@ function creatProduct() {
     productService.addProduct(productName, productPrice, productCategory);
 
     console.log(productService.products)
+}
+
+function clearFormFields() {
+    document.getElementById("categoryName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productsName").value = "";
+    document.getElementById("productsCategory").value = "";
 }
